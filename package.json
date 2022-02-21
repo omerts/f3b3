@@ -33,5 +33,10 @@
     "redux": "^4.1.1",
     "rxjs": "^7.4.0",
     "typescript": "^4.4.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omerts/f3b3.git"
+  },
+  "keywords": ["react", "redux", "rxjs", "micro fe"]
 }
