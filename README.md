@@ -269,10 +269,6 @@ createModel<HelpModelState>({
 })
 ```
 
----
-
----
-
 #### RegisterRouteParams
 
 `createModels`'s `initActions` is defined as an array of `RegisterRouteParams`. On every route change, frx will try to match the registered actions, and dispatch the ones that match the route.
@@ -578,7 +574,6 @@ export const changePassword = (
 | Params                                        | Description                                                     |
 | --------------------------------------------- | --------------------------------------------------------------- |
 | arg 1: Action type, arg 2 (optional): payload | A React hook to easily dispatch actions from within components. |
-|                                               |
 
 ```typescript
 import { useCreateAction } from 'frx'
@@ -602,7 +597,6 @@ const App = (): JSX.Element => {
 | Params                                                     | Description                                                       |
 | ---------------------------------------------------------- | ----------------------------------------------------------------- |
 | string of path or Route type see (`ROUTE_CHANGED` payload) | A React hook to easily perform navgiation from within components. |
-|                                                            |
 
 ```tsx
 import { useNavigate, useSelector } from 'frx'
@@ -657,13 +651,16 @@ import { useNavigate, useSelector, createEpicMiddleware } from 'frx'
 
 ## Credits
 
-Big thanks to the following great libs and their authors:
-[React](https://github.com/facebook/react)
-[Redux](https://github.com/reduxjs/redux)
-[React-Redux](https://github.com/reduxjs/react-redux)
-[Redux-Observable](https://github.com/redux-observable/redux-observable/)
-[History](https://github.com/remix-run/history)
-[Immer](https://github.com/immerjs/immer)
+Big thanks to the one and only G-d.
+
+Credits to the following great libs and their authors:
+
+- [React](https://github.com/facebook/react)
+- [Redux](https://github.com/reduxjs/redux)
+- [React-Redux](https://github.com/reduxjs/react-redux)
+- [Redux-Observable](https://github.com/redux-observable/redux-observable/)
+- [History](https://github.com/remix-run/history)
+- [Immer](https://github.com/immerjs/immer)
 
 ## Built With
 
