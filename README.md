@@ -1,12 +1,12 @@
 # Please note this is an alpha version
 
-[![npm version](https://badge.fury.io/js/frx.svg)](https://badge.fury.io/js/frx)
+[![npm version](https://badge.fury.io/js/f3b3.svg)](https://badge.fury.io/js/f3b3)
 [![code style: prettier-standard](https://img.shields.io/badge/code_style-standard-ff69b4.svg?style=flat-square)](https://standardjs.com/)
 [![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
 
 # Project Name
 
-frx is light-weight infrastructure for developing React, Redux, and RX based applications, with built it routing (using react-router's `history` package), fetch on route, and Redux-Observable helpers. It also promots breaking down your frontend into micro-frontends.
+f3b3 is light-weight infrastructure for developing React, Redux, and RX based applications, with built it routing (using react-router's `history` package), fetch on route, and Redux-Observable helpers. It also promots breaking down your frontend into micro-frontends.
 
 ## Prerequisites
 
@@ -57,19 +57,19 @@ To install run:
 
 ```
 // npm
-npm install frx
+npm install f3b3
 
 // yarn
-yarn install frx
+yarn install f3b3
 
 ```
 
 ## Setup
 
-1 . To hook frx into redux, you will need to configure your redux store, with `reduce`, `rootEpic`, and `createEpicMiddleware` from `frx` (not to be confused to redux-observable)
+1 . To hook f3b3 into redux, you will need to configure your redux store, with `reduce`, `rootEpic`, and `createEpicMiddleware` from `f3b3` (not to be confused to redux-observable)
 
 ```typescript
-import { reduce, rootEpic, createEpicMiddleware } from 'frx'
+import { reduce, rootEpic, createEpicMiddleware } from 'f3b3'
 import { createStore, applyMiddleware, compose } from 'redux'
 
 declare global {
@@ -201,7 +201,7 @@ export const createModel = <T>(params: CreateModelParams<T>)
 Example:
 
 ```typescript
-import { createModel, ModelReducers, Action, Draft, Actions } from 'frx'
+import { createModel, ModelReducers, Action, Draft, Actions } from 'f3b3'
 
 import * as helpActions from '../actions'
 import * as helpEpic from '../epics/helpEpic'
@@ -271,7 +271,7 @@ createModel<HelpModelState>({
 
 #### RegisterRouteParams
 
-`createModels`'s `initActions` is defined as an array of `RegisterRouteParams`. On every route change, frx will try to match the registered actions, and dispatch the ones that match the route.
+`createModels`'s `initActions` is defined as an array of `RegisterRouteParams`. On every route change, f3b3 will try to match the registered actions, and dispatch the ones that match the route.
 
 `path`
 
@@ -327,7 +327,7 @@ const initActions = [
 
 ### Actions
 
-frx comes with some built in actions, and a generic action creator to avoid the boilerplate of creating action creators for every action.
+f3b3 comes with some built in actions, and a generic action creator to avoid the boilerplate of creating action creators for every action.
 
 #### Built in actions
 
@@ -340,7 +340,7 @@ frx comes with some built in actions, and a generic action creator to avoid the 
 Example:
 
 ```typescript
-import { Actions } from 'frx'
+import { Actions } from 'f3b3'
 
 Actions.createAction<UserNotifiedPayload>(CommonActions.USER_NOTIFIED, {
   notification: {
@@ -442,7 +442,7 @@ Actions.createAction(Actions.ROUTE_UPDATED, { search: '?test=1' })
 Example:
 
 ```typescript
-import { getPayload } from 'frx'
+import { getPayload } from 'f3b3'
 
 export const errorNotifier = (action$: Observable<Action>) => {
   return action$.pipe(
@@ -474,7 +474,7 @@ export const errorNotifier = (action$: Observable<Action>) => {
 Example:
 
 ```typescript
-import { ofRoute } from 'frx'
+import { ofRoute } from 'f3b3'
 
 export const redirectFromInactiveRoute = (action$: Observable<Action>) => {
   return action$.pipe(
@@ -493,7 +493,7 @@ export const redirectFromInactiveRoute = (action$: Observable<Action>) => {
 Example:
 
 ```typescript
-import { getPayload, startPolling } from 'frx'
+import { getPayload, startPolling } from 'f3b3'
 
 export const checkForNewMessages = (action$: Observable<Action>) => {
   return action$.pipe(
@@ -513,7 +513,7 @@ export const checkForNewMessages = (action$: Observable<Action>) => {
 Example:
 
 ```typescript
-import { getPayload, catchAndDispatchError } from 'frx'
+import { getPayload, catchAndDispatchError } from 'f3b3'
 
 export const changePassword = (
   action$: Observable<Action>,
@@ -545,7 +545,7 @@ export const changePassword = (
 Example:
 
 ```typescript
-import { getPayload, catchAndDispatchError } from 'frx'
+import { getPayload, catchAndDispatchError } from 'f3b3'
 
 export const changePassword = (
   action$: Observable<Action>,
@@ -576,7 +576,7 @@ export const changePassword = (
 | arg 1: Action type, arg 2 (optional): payload | A React hook to easily dispatch actions from within components. |
 
 ```typescript
-import { useCreateAction } from 'frx'
+import { useCreateAction } from 'f3b3'
 
 const App = (): JSX.Element => {
   const createAction = useCreateAction()
@@ -599,7 +599,7 @@ const App = (): JSX.Element => {
 | string of path or Route type see (`ROUTE_CHANGED` payload) | A React hook to easily perform navgiation from within components. |
 
 ```tsx
-import { useNavigate, useSelector } from 'frx'
+import { useNavigate, useSelector } from 'f3b3'
 import { AnchorHTMLAttributes, FC } from 'react'
 import { AppState } from 'types'
 import matchPath from 'utils/matchPath'
@@ -642,11 +642,11 @@ export default NavLink
 
 ## More information
 
-In order to ease imports, we have re-exported all of react-redux, and main redux-observable exports, so you can just import them all from frx.
+In order to ease imports, we have re-exported all of react-redux, and main redux-observable exports, so you can just import them all from f3b3.
 Example:
 
 ```typescript
-import { useNavigate, useSelector, createEpicMiddleware } from 'frx'
+import { useNavigate, useSelector, createEpicMiddleware } from 'f3b3'
 ```
 
 ## Credits
