@@ -6,7 +6,7 @@
 
 # Project Name
 
-f3b3 is light-weight infrastructure for developing React, Redux, and RX based applications, with built it routing (using react-router's `history` package), fetch on route, and Redux-Observable helpers. It also promots breaking down your frontend into micro-frontends.
+f3b3 is light-weight infrastructure for developing React, Redux, and RX based applications, with built in routing, and fetch on route. It also promotes breaking down your frontend into micro-frontends.
 
 ## Prerequisites
 
