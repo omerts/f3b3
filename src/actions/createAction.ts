@@ -1,4 +1,9 @@
-export const createAction = <T>(type: string, payload?: T) => {
+import { Action, EmptyAction } from 'types'
+
+export const createAction = <T>(
+  type: string,
+  payload?: T
+): Action | EmptyAction => {
   if (!type) {
     throw new Error('An action must have a type')
   }
