@@ -5,14 +5,8 @@ export declare const Actions: {
     NAVIGATED_BACK: "NAVIGATED_BACK";
     NAVIGATION_REGISTERED: "NAVIGATION_REGISTERED";
     OPERATION_FAILED: "OPERATION_FAILED";
-    createAction: <T>(type: string, payload?: T | undefined) => {
-        payload?: T | undefined;
-        type: string;
-    };
-    default: <T>(type: string, payload?: T | undefined) => {
-        payload?: T | undefined;
-        type: string;
-    };
+    createAction: <T>(type: string, payload?: T | undefined) => import("../types").EmptyAction | import("..").Action<any>;
+    default: <T>(type: string, payload?: T | undefined) => import("../types").EmptyAction | import("..").Action<any>;
 };
 export default Actions;
 //# sourceMappingURL=index.d.ts.map
