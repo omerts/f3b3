@@ -1,14 +1,14 @@
 import produce, { Draft } from 'immer';
-import { AnyAction } from 'redux';
 import { Epic } from 'redux-observable';
 
 import { registerEpics } from './epics';
 import { registerRoute, RegisterRouteParams } from './epics/routerEpic';
 import reducerManager from './reducerManager';
+import { Action } from './types';
 import { isMatch } from './utils/routing';
 
 export interface ModelReducers<T> {
-  [actionType: string]: (state: Draft<T>, action: AnyAction) => void
+  [actionType: string]: (state: Draft<T>, action: Action<any>) => void
 }
 
 export interface CreateModelParams<T> {

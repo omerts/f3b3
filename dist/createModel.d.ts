@@ -1,9 +1,9 @@
 import { Draft } from 'immer';
-import { AnyAction } from 'redux';
 import { Epic } from 'redux-observable';
 import { RegisterRouteParams } from './epics/routerEpic';
+import { Action } from './types';
 export interface ModelReducers<T> {
-    [actionType: string]: (state: Draft<T>, action: AnyAction) => void;
+    [actionType: string]: (state: Draft<T>, action: Action<any>) => void;
 }
 export interface CreateModelParams<T> {
     key: string;
