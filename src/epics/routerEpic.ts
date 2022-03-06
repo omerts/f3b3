@@ -3,7 +3,7 @@ import { filter, map, switchMap } from 'rxjs/operators'
 import { Epic } from 'redux-observable'
 import { isMatch } from '../utils/routing'
 import Actions from '../actions'
-import { Action, AnyAction, EmptyAction, Route } from '../types'
+import { Action, AnyAction, Route } from '../types'
 import { getPayload, catchAndDispatchError } from '../utils/rxUtils'
 
 export interface RouteCallbackParam {

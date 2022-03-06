@@ -1,19 +1,9 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
+import { combineEpics } from 'redux-observable';
 import { ReplaySubject } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
-import { combineEpics } from 'redux-observable';
 import routerEpic from './routerEpic';
-import * as browserHistoryEpic from './browserHistoryEpic';
 var epic$ = new ReplaySubject(Infinity, 15000);
-epic$.next(combineEpics.apply(void 0, __spreadArray([routerEpic], Object.values(browserHistoryEpic), true)));
+epic$.next(combineEpics.apply(void 0, [routerEpic]));
 export var rootEpic = function (action$, state$) {
     return epic$.pipe(mergeMap(function (epic) {
         return epic(action$, state$, null);
