@@ -1,9 +1,6 @@
-import { Action, EmptyAction } from 'types'
+import { AnyAction } from 'redux';
 
-export const createAction = <T>(
-  type: string,
-  payload?: T
-): Action | EmptyAction => {
+export const createAction = <T>(type: string, payload?: T): AnyAction => {
   if (!type) {
     throw new Error('An action must have a type')
   }

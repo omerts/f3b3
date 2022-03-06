@@ -1,6 +1,6 @@
-import { of, interval } from 'rxjs';
-import { filter, catchError, pluck, switchMap, mapTo, takeUntil, startWith } from 'rxjs/operators';
 import { ofType } from 'redux-observable';
+import { interval, of } from 'rxjs';
+import { catchError, filter, mapTo, pluck, startWith, switchMap, takeUntil } from 'rxjs/operators';
 import Actions from '../actions';
 export var getPayload = function () {
     var args = [];

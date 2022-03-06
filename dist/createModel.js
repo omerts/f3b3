@@ -1,8 +1,8 @@
 import produce from 'immer';
-import { isMatch } from './utils/routing';
+import { registerEpics } from './epics';
 import { registerRoute } from './epics/routerEpic';
 import reducerManager from './reducerManager';
-import { registerEpics } from './epics';
+import { isMatch } from './utils/routing';
 var buildReducersThunk = function (params) {
     return produce(function (draft, action) {
         // If we are not on the configured route, do nothing

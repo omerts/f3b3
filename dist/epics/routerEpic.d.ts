@@ -1,5 +1,6 @@
+import { AnyAction } from 'redux';
 import { Epic } from 'redux-observable';
-import { AnyAction, Route } from '../types';
+import { Route } from '../types';
 export interface RouteCallbackParam {
     route: Route;
     pathParams: Object;

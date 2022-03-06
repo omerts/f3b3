@@ -3,7 +3,7 @@ export interface EmptyAction {
 }
 
 export interface Action<T = any> extends EmptyAction {
-  payload: T
+  payload?: T
 }
 
 export type AnyAction = EmptyAction | Action

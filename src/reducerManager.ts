@@ -1,12 +1,11 @@
-import { enableES5 } from 'immer'
-import { Reducer } from 'react'
-import { combineReducers, ReducersMapObject } from 'redux'
-import { Action } from './types'
+import { enableES5 } from 'immer';
+import { Reducer } from 'react';
+import { AnyAction, combineReducers, ReducersMapObject } from 'redux';
 
 enableES5()
 
 export function createReducerManager () {
-  let combinedReducer: Reducer<any, Action<any>> | null = null
+  let combinedReducer: Reducer<any, AnyAction> | null = null
 
   // Create an object which maps keys to reducers
   const reducers: ReducersMapObject = {}
@@ -18,7 +17,7 @@ export function createReducerManager () {
     getReducerMap: () => reducers,
     // The root reducer function exposed by this object
     // This will be passed to the store
-    reduce: (state: any, action: Action<any>) => {
+    reduce: (state: any, action: AnyAction) => {
       // If any reducers have been removed, clean up their state first
       if (keysToRemove.length > 0) {
         state = { ...state }

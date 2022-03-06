@@ -5,8 +5,8 @@ export declare const Actions: {
     NAVIGATED_BACK: "NAVIGATED_BACK";
     NAVIGATION_REGISTERED: "NAVIGATION_REGISTERED";
     OPERATION_FAILED: "OPERATION_FAILED";
-    createAction: <T>(type: string, payload?: T | undefined) => import("../types").EmptyAction | import("..").Action<any>;
-    default: <T>(type: string, payload?: T | undefined) => import("../types").EmptyAction | import("..").Action<any>;
+    createAction: <T>(type: string, payload?: T | undefined) => import("redux").AnyAction;
+    default: <T>(type: string, payload?: T | undefined) => import("redux").AnyAction;
 };
 export default Actions;
 //# sourceMappingURL=index.d.ts.map

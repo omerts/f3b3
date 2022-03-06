@@ -1,8 +1,8 @@
 import { from } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
-import { isMatch } from '../utils/routing';
 import Actions from '../actions';
-import { getPayload, catchAndDispatchError } from '../utils/rxUtils';
+import { isMatch } from '../utils/routing';
+import { catchAndDispatchError, getPayload } from '../utils/rxUtils';
 // TODO find a more functional approach
 var routeConfig = [];
 export var registerRoute = function (registerParams) {

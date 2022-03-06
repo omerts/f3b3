@@ -1,10 +1,12 @@
-import { from, Observable } from 'rxjs'
-import { filter, map, switchMap } from 'rxjs/operators'
-import { Epic } from 'redux-observable'
-import { isMatch } from '../utils/routing'
-import Actions from '../actions'
-import { Action, AnyAction, Route } from '../types'
-import { getPayload, catchAndDispatchError } from '../utils/rxUtils'
+import { AnyAction } from 'redux';
+import { Epic } from 'redux-observable';
+import { from, Observable } from 'rxjs';
+import { filter, map, switchMap } from 'rxjs/operators';
+
+import Actions from '../actions';
+import { Route } from '../types';
+import { isMatch } from '../utils/routing';
+import { catchAndDispatchError, getPayload } from '../utils/rxUtils';
 
 export interface RouteCallbackParam {
   route: Route
@@ -90,7 +92,7 @@ const runRouteAction = (route: Route) => {
   )
 }
 
-export const route: Epic = (action$: Observable<Action<any>>) => {
+export const route: Epic = (action$: Observable<AnyAction>) => {
   return action$.pipe(
     getPayload(Actions.ROUTE_CHANGED),
     filter(
