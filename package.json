@@ -1,6 +1,6 @@
 {
   "name": "f3b3",
-  "version": "0.1.11-alpha",
+  "version": "0.1.12-alpha",
   "description": "FE infratstructure based on React, Redux & Redux-Observable",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
