@@ -17,6 +17,11 @@
     "rxjs": "^7.4.0",
     "@react-navigation/native": "^6.0.8"
   },
+  "peerDependenciesMeta": {
+    "@react-navigation/native": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "history": "^5.0.1",
     "immer": "^9.0.6",
