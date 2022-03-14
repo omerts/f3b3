@@ -1,6 +1,7 @@
 import { Epic, ofType } from 'redux-observable';
-import { asyncScheduler } from 'rxjs';
+import { asyncScheduler, Observable } from 'rxjs';
 import { map, observeOn, pluck, tap, withLatestFrom } from 'rxjs/operators';
+import { Action, Route } from 'types';
 
 import { NavigationContainerRef } from '@react-navigation/native';
 
@@ -9,15 +10,26 @@ import { getPayload } from '../utils';
 
 const getNavigator = pluck<NavigationContainerRef<any>>('navigator')
 
-const dispatchNavigatedAction = map(([{ payload }]) =>
-  Actions.createAction(Actions.ROUTE_CHANGED, payload)
-)
+const dispatchNavigatedAction = map(([{ payload }]: [NavigationPayload]) => {
+  const route: Partial<Route> = {}
+
+  if (typeof payload === 'string') {
+    route.path = payload
+  } else if (typeof payload === 'object' && payload.main) {
+    const { main, params } = payload
+
+    route.path = main
+    route.query = params
+  }
+
+  return Actions.createAction(Actions.ROUTE_CHANGED, payload)
+})
 
 export type NavigationPayload = {
   payload: string | { main: string; params: any }
 }
 
-export const navigateTo: Epic = action$ => {
+export const navigateTo: Epic = (action$: Observable<Action>) => {
   const navigator = action$.pipe(
     getPayload(Actions.NAVIGATION_REGISTERED),
     getNavigator
@@ -49,7 +61,7 @@ export const navigateTo: Epic = action$ => {
   )
 }
 
-export const navigateBack: Epic = action$ => {
+export const navigateBack: Epic = (action$: Observable<Action>) => {
   const navigator = action$.pipe(
     getPayload(Actions.NAVIGATION_REGISTERED),
     getNavigator
