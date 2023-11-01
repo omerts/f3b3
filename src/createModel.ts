@@ -1,4 +1,4 @@
-import produce, { Draft } from 'immer';
+import { Draft, produce } from 'immer';
 import { Epic } from 'redux-observable';
 
 import { registerEpics } from './epics';
