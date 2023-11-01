@@ -1,5 +1,3 @@
-# Please note this is an alpha version
-
 [![npm version](https://badge.fury.io/js/f3b3.svg)](https://badge.fury.io/js/f3b3)
 [![code style: prettier-standard](https://img.shields.io/badge/code_style-standard-ff69b4.svg?style=flat-square)](https://standardjs.com/)
 [![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
@@ -14,11 +12,15 @@ Before using this lib you should be familiar with [react-redux](https://react-re
 
 This project has the following peer dependencies:
 
-1. react - 16.8.0 and up
-2. react-dom - 17.0.2 and up
-3. react-redux - 7.1.0 and up
-4. redux: 4.1.1 and up
-5. rxjs: 6 and up
+```
+"peerDependencies": {
+    "@react-navigation/native": "^6.1.9",
+    "react": "^18.2.0",
+    "react-redux": "^8.1.3",
+    "redux": "^4.2.1",
+    "rxjs": "^7.8.1"
+  }
+```
 
 ## Table of contents
 

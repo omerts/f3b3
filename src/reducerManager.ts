@@ -1,8 +1,5 @@
-import { enableES5 } from 'immer';
 import { Reducer } from 'react';
 import { AnyAction, combineReducers, ReducersMapObject } from 'redux';
-
-enableES5()
 
 export function createReducerManager () {
   let combinedReducer: Reducer<any, AnyAction> | null = null
