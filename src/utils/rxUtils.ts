@@ -1,14 +1,24 @@
-import { AnyAction } from 'redux';
-import { ofType } from 'redux-observable';
-import { interval, Observable, of } from 'rxjs';
-import { catchError, filter, mapTo, pluck, startWith, switchMap, takeUntil } from 'rxjs/operators';
+import { AnyAction } from 'redux'
+import { ofType } from 'redux-observable'
+import { interval, Observable, of } from 'rxjs'
+import {
+  catchError,
+  filter,
+  map,
+  startWith,
+  switchMap,
+  takeUntil
+} from 'rxjs/operators'
 
-import Actions from '../actions';
-import { Action, Route } from '../types';
+import Actions from '../actions'
+import { Action, Route } from '../types'
 
-export const getPayload = (...args: [string]) => {
+export const getPayload = (...types: string[]) => {
   return (src: Observable<AnyAction>) =>
-    src.pipe(ofType(...args), pluck('payload'))
+    src.pipe(
+      ofType(types),
+      map(({ payload }) => payload)
+    )
 }
 
 export const startPolling = (
@@ -20,7 +30,7 @@ export const startPolling = (
       switchMap(payload => {
         return interval(timeInSeconds * 1000).pipe(
           takeUntil(takeUntilParam),
-          mapTo(payload),
+          map(() => payload),
           startWith(payload)
         )
       })

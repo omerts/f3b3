@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import {
-    NavigationContainer as InnerNavigationContainer, NavigationContainerProps
+  NavigationContainer as InnerNavigationContainer, NavigationContainerProps
 } from '@react-navigation/native';
 
 import Actions from '../../actions';

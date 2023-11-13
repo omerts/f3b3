@@ -1,10 +1,11 @@
 //@ts-nocheck
-import routeParser from 'route-parser'
-import urlParser from 'url-parse'
-import isEqual from 'lodash/isEqual'
-import isObjectMatch from 'lodash/isMatch'
-import { Route } from '../types'
-import trimEnd from './trimEnd'
+import safeGet from 'lodash/get';
+import isEqual from 'lodash/isEqual';
+import isObjectMatch from 'lodash/isMatch';
+import routeParser from 'route-parser';
+
+import { Route } from '../types';
+import trimEnd from './trimEnd';
 
 function formatRoute (route: string, exactMatch: boolean) {
   const suffix = exactMatch ? '' : '(/*childRoutes)'
@@ -51,9 +52,9 @@ export function getMatchedQuery (
     let q = safeGet(r, 'query', null)
 
     if (typeof r === 'string') {
-      const rp = urlParser(r, true)
-      p = rp.pathname
-      q = rp.query
+      const url = new URL(r)
+      p = url.pathname
+      q = url.search
     }
 
     if (path === p) {

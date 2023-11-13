@@ -42,7 +42,7 @@ This project has the following peer dependencies:
   - [React Hooks](#react-hooks)
     - [useCreateAction](#usecreateaction)
     - [useNavigate](#usenavigate)
-  - [General recommnedations](#general-recommnedations)
+  - [General recommnedations](#general-recommendations)
   - [More information](#more-information)
   - [Credits](#credits)
   - [Built With](#built-with)
@@ -93,7 +93,7 @@ epicMiddleware.run(rootEpic)
 export default store
 ```
 
-2. You will need to import your models in your index file. A common pattern is to create a bootstrapper file, and import that file in your index file.
+2. You will need to import your models in your index file. A common pattern is to create a bootstrapper file, and import that file in your App.js|tsx file.
 
 ```typescript
 // bootstrapper.ts
@@ -104,17 +104,17 @@ export * from './features/help/models'
 ```
 
 ```typescript
-// index.ts
-import App from './App'
-import './bootstrapper'
-import store from './store'
+// App.ts
+import './bootstrapper';
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-)
+import { NavigationContainer } from 'f3b3';
+...
+
+function App (): JSX.Element {
+  ...
+}
+
+...
 ```
 
 ## Usage
@@ -609,6 +609,7 @@ import matchPath from 'utils/matchPath'
 export interface NavLinkProps extends AnchorHTMLAttributes<unknown> {
   to: string
   exactMatch?: boolean
+  children?: React.ReactNode
 }
 
 export const NavLink: FC<NavLinkProps> = props => {
@@ -633,7 +634,7 @@ export const NavLink: FC<NavLinkProps> = props => {
 export default NavLink
 ```
 
-## General recommnedations
+## General recommendations
 
 1. Name your actions as something that already happened in the system, and inside your state and epics you are "reacting" to them.
 2. Break down your frontend into features, having at least one model (using `createModel`) per feature.
