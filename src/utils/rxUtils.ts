@@ -13,10 +13,10 @@ import {
 import Actions from '../actions'
 import { Action, Route } from '../types'
 
-export const getPayload = (...types: string[]) => {
+export const getPayload = (...types: [string, ...string[]]) => {
   return (src: Observable<AnyAction>) =>
     src.pipe(
-      ofType(types),
+      ofType(...types),
       map(({ payload }) => payload)
     )
 }
