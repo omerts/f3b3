@@ -1,10 +1,10 @@
 export { Epic, StateObservable, createEpicMiddleware } from 'redux-observable'
 export { Draft } from 'immer'
-export { Action, Route, OperationFailedPayload } from './types'
 export { RouteCallbackParam, RegisterRouteParams } from './epics/routerEpic'
 export { ModelReducers, CreateModelParams } from './createModel'
-import reducerManager from './reducerManager';
+import reducerManager from './reducerManager'
 
+export * from './types'
 export * from './utils'
 export * from './createModel'
 export * from './actions'
